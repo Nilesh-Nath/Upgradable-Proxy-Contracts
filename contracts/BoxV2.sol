@@ -1,0 +1,27 @@
+//SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.18;
+
+contract BoxV2 {
+    uint256 internal value;
+
+    event valueChanged(uint256 newValue);
+
+    function store(uint256 newValue) public {
+        value = newValue;
+        emit valueChanged(newValue);
+    }
+
+    function retrieve() public view returns (uint256) {
+        return value;
+    }
+
+    function version() public pure returns (uint256) {
+        return 2;
+    }
+
+    function increament() public {
+        value = value + 1;
+        emit valueChanged(value);
+    }
+}
